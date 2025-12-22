@@ -1,37 +1,48 @@
+# Dashboard E-commerce Olist - Power BI
+
 ## 📊 Visión General del Proyecto
-Este repositorio contiene una demostración técnica de un dashboard de alto nivel para E-commerce. El diseño y la arquitectura de datos fueron originalmente desarrollados para un entorno real de WooCommerce (WordPress) y han sido adaptados exitosamente utilizando el conocido dataset público de **Brazilian E-Commerce Public Dataset by Olist** para fines de demostración pública.
+
+Este repositorio contiene una demostración técnica de un dashboard de alto nivel para E-commerce. El diseño y la arquitectura de datos fueron desarrollados adaptando el conocido dataset público de **Brazilian E-Commerce Public Dataset by Olist**.
 
 El objetivo es demostrar capacidades avanzadas en Power BI, superando las visualizaciones nativas para crear una experiencia de usuario (UX) personalizada y profesional, orientada a la toma de decisiones gerenciales.
 
-## Características Clave
+> **Nota Técnica:** Este proyecto se distribuye como una **Plantilla de Power BI (.pbit)** para optimizar el almacenamiento en GitHub y facilitar la reutilización de la estructura.
 
-Este no es un reporte estándar. Implementa técnicas avanzadas de visualización y modelado:
+## 🚀 Características Clave
+
+Este no es un reporte estándar. Implementa técnicas avanzadas de visualización, modelado y segmentación geoespacial:
 
 * **UX/UI Avanzado (Layering):** Tarjetas de KPI compuestas mediante la superposición de formas, métricas y sparklines para contexto histórico inmediato.
+* **Análisis Geoespacial Estratégico:** Uso de **Shape Maps (TopoJSON)** personalizados para visualizar Brasil sin ruido cartográfico.
+* **Segmentación Comercial Personalizada:** Agrupación de los 27 estados brasileños en 4 clusters estratégicos (Sudeste, Sur, Nordeste y Centro-Norte) para equilibrar el análisis de densidad de ventas.
+* **Tooltips Avanzados (Page-level):** Fichas contextuales que aparecen al pasar el cursor sobre regiones específicas, mostrando micro-tendencias y clientes top sin saturar la vista principal.
 * **Inteligencia de Tiempo Dinámica:** Medidas DAX complejas (usando tablas desconectadas y `SWITCH`) para permitir alternar periodos (ej. 3 Meses vs Histórico) sin afectar el resto del reporte.
-* **Análisis Comparativo (MoM):** Indicadores visuales (badges) que muestran la variación porcentual automática.
 * **Visuales Compuestos de Ranking:** Fusión de gráficos de barras y áreas para visualizar ranking y tendencia simultáneamente.
 
-## Origen de Datos (Importante)
-Debido a las restricciones de tamaño de archivo de GitHub, **los datasets CSV originales no se incluyen en este repositorio**.
+## 📂 Estructura del Repositorio
 
-Para interactuar con el modelo o refrescar los datos, debes descargar el dataset oficial desde Kaggle:
-**[Brazilian E-Commerce Public Dataset by Olist](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce)**
-
-*Instrucciones: Descarga los archivos y asegúrate de que la ruta de origen en el archivo `.pbix` apunte a tu carpeta local de descargas.*
-
-## Estructura del Repositorio
-
-* `*.pbix`: El archivo de proyecto de Power BI con las visualizaciones demo (Tarjetas KPI y Top Ranking).
+* `*.pbit`: **Archivo de Plantilla de Power BI**. Contiene toda la estructura, medidas DAX, visualizaciones y modelo de datos, pero **sin los datos cargados** (peso ligero).
 * `Imagen de referencia.png`: Captura del resultado visual esperado.
 * `README.md`: Documentación técnica del proyecto.
 
-## Stack Tecnológico
+## 🛠 Stack Tecnológico
 
 * **Herramienta:** Microsoft Power BI Desktop.
 * **Lenguaje:** DAX Avanzado (Time Intelligence, `DIVIDE/ALL`, Tablas Virtuales).
 * **Modelado:** Esquema Estrella (Star Schema).
 * **Transformación:** Power Query (M).
+* **Geoespacial:** TopoJSON para mapas de forma personalizados.
 
-## Nota sobre el Dataset
+## ⚙️ Instrucciones de Uso (Importante)
+
+Debido a que el archivo es una plantilla (`.pbit`), necesitas los datos originales para visualizar el reporte. Sigue estos pasos:
+
+1.  **Descargar Datos:** Descarga el dataset oficial desde Kaggle: [Brazilian E-Commerce Public Dataset by Olist](https://www.kaggle.com/olistbr/brazilian-ecommerce).
+2.  **Abrir Plantilla:** Al abrir el archivo `.pbit` en Power BI Desktop, se abrirá una ventana emergente.
+3.  **Cargar Rutas:** Si se solicitan parámetros, ingresa la ruta de tu carpeta local donde guardaste los archivos CSV/Excel o simplemente acepta la carga para que Power BI busque los orígenes.
+    * *Nota: Asegúrate de que los nombres de los archivos CSV coincidan con los esperados por el modelo.*
+4.  **Actualizar:** Una vez cargado, dale al botón "Actualizar" para poblar los gráficos.
+
+## 📝 Nota sobre el Dataset
+
 El dataset de Olist anonimiza los nombres de productos usando IDs. Los visuales de detalle reflejarán estos IDs (ej. `aca2eb7d...`) como comportamiento esperado.
