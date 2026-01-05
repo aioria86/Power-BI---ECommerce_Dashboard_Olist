@@ -18,12 +18,26 @@ Este no es un reporte estándar. Implementa técnicas avanzadas de visualizació
 * **Tooltips Avanzados (Page-level):** Fichas contextuales que aparecen al pasar el cursor sobre regiones específicas, mostrando micro-tendencias y clientes top sin saturar la vista principal.
 * **Inteligencia de Tiempo Dinámica:** Medidas DAX complejas (usando tablas desconectadas y `SWITCH`) para permitir alternar periodos (ej. 3 Meses vs Histórico) sin afectar el resto del reporte.
 * **Visuales Compuestos de Ranking:** Fusión de gráficos de barras y áreas para visualizar ranking y tendencia simultáneamente.
-
+  
 ## 📂 Estructura del Repositorio
 
-* `*.pbit`: **Archivo de Plantilla de Power BI**. Contiene toda la estructura, medidas DAX, visualizaciones y modelo de datos, pero **sin los datos cargados** (peso ligero).
+Actualmente, el repositorio cuenta con dos versiones del archivo para facilitar su acceso:
+
+* `*.pbit` (**Recomendado**): Archivo de **Plantilla**. Es el más ligero, contiene toda la estructura y medidas pero requiere cargar los datos de origen al abrirlo.
+* `*.pbix`: Archivo de **Power BI completo**. Contiene los datos ya importados.
+    * *Nota:* Para hacer posible la subida de este archivo a GitHub, se ha realizado un proceso de optimización reduciendo su tamaño considerablemente.
 * `Imagen de referencia.png`: Captura del resultado visual esperado.
-* `README.md`: Documentación técnica del proyecto.
+
+## ⚙️ Optimización y Limpieza de Datos
+
+Con el objetivo de mejorar el rendimiento del reporte y reducir el peso del archivo `.pbix` para su distribución, se aplicaron técnicas de **depuración del modelo**:
+
+* **Eliminación de Columnas:** Se han eliminado del modelo todas las columnas de las tablas originales que no eran estrictamente necesarias para los cálculos o visualizaciones actuales.
+* **Beneficio:** Esto permite tiempos de carga más rápidos y un archivo final lo suficientemente ligero para ser compartido, manteniendo la integridad de los cálculos DAX y las relaciones del esquema estrella.
+
+## 📝 Nota sobre el Dataset
+
+El dataset de Olist anonimiza los nombres de productos usando IDs. Los visuales de detalle reflejarán estos IDs (ej. `aca2eb7d...`) como comportamiento esperado.
 
 ## 🛠 Stack Tecnológico
 
